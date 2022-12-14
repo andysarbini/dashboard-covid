@@ -20,10 +20,9 @@ class ChartController extends Controller
         ->GroupBy(DB::raw("MONTHNAME(updated_at)"))
         ->pluck('bulan');
 
-        $data['res'] = $this->getCovid();
+        $data['all'] = $this->getCovid(); // all
+        $data['pen'] = $this->covPenambahan();
 
-        // $data = array('total_harga', 'bulan', 'res');
-        // dd($res);
         return view('charts.index', $data);
     }
 
@@ -31,6 +30,14 @@ class ChartController extends Controller
     {
         $response = Http::get('https://apicovid19indonesia-v2.vercel.app/api/indonesia')->json();
         return $response;
-        // dd($response);
+    }
+    
+    public function covPenambahan()
+    {
+        $response = Http::get('https://apicovid19indonesia-v2.vercel.app/api/indonesia/more')->json();
+
+        $result = json_decode(json_encode($response), true);
+
+        return $result;
     }
 }

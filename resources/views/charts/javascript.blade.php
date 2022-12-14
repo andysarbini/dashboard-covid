@@ -10,6 +10,13 @@
     let pendapatan = {!! json_encode($total_harga)!!};
     let bulan = {!! json_encode($bulan) !!};
 
+    let positif = {!! $pen['penambahan']['positif'] !!}
+    let dirawat = {!! $pen['penambahan']['dirawat'] !!}
+    let sembuh = {!! $pen['penambahan']['sembuh'] !!}
+    let meninggal = {!! $pen['penambahan']['meninggal'] !!}
+    
+    console.log(positif);
+
     Highcharts.chart('grafik', {
         title : {
             text: 'Grafik Pendapatan Bulanan'
@@ -34,4 +41,33 @@
             }
         ]
     });
+
+    Highcharts.chart('penambahan', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Grafik Penambahan Kasus'
+    },
+    xAxis: {
+        categories: ['Penambahan Kasus']
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Positif',
+        data: [positif]
+    }, {
+        name: 'Dirawat',
+        data: [dirawat]
+    }, {
+        name: 'Sembuh',
+        data: [sembuh]
+    }, {
+        name: 'Meninggal',
+        data: [meninggal]
+    }
+]
+});
 </script>

@@ -31,5 +31,6 @@ Route::get('/users', [DashboardController::class, 'user']);
 
 Route::get('/chart/grafik', [ChartController::class, 'grafik']);
 Route::get('/chart/covid', [ChartController::class, 'getCovid']);
+Route::get('/chart/penambahan', [ChartController::class, 'covPenambahan']);
 
 
