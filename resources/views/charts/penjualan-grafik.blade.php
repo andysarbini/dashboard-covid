@@ -140,6 +140,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header">Data Setiap Propinsi</div>
+                <div class="card-body">
+                    <div id="propinsi"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
                 <div class="card-header">Data Penjualan</div>
                 <div class="card-body">
                     <div id="grafik"></div>

@@ -33,4 +33,8 @@ Route::get('/chart/grafik', [ChartController::class, 'grafik']);
 Route::get('/chart/covid', [ChartController::class, 'getCovid']);
 Route::get('/chart/penambahan', [ChartController::class, 'covPenambahan']);
 
+// test nilai
+Route::get('/chart/prov', [ChartController::class, 'getProv']);
+Route::get('/chart/kasus', [ChartController::class, 'getKasus']);
+
 
